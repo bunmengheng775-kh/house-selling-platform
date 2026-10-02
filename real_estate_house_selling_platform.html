@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraHome - Sell Your House Fast & For Top Dollar</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            900: '#0f172a',
+                        },
+                        emeraldCustom: {
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar & Utility Animations */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .custom-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+            border: 3px solid #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-house-chimney-window text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 via-brand-900 to-brand-600 bg-clip-text text-transparent">AuraHome</span>
+                    <span class="block text-[10px] font-bold tracking-widest text-brand-600 uppercase -mt-1">Real Estate</span>
+                </div>
+            </a>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 text-slate-700 hover:bg-slate-100 rounded-xl transition-colors">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3">
+            <a href="#featured-listings" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-brand-600 py-1">Find Homes</a>
+            <a href="#sell-section" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-brand-600 py-1">Sell Property</a>
+            <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+                <button onclick="toggleMobileMenu(); openListingModal()" class="w-full bg-brand-600 text-white font-semibold py-2.5 rounded-xl shadow-md">
+                    + List Your House
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-slate-900 text-white pt-16 pb-24 overflow-hidden">
+        <!-- Background Decorative Elements -->
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-500/30 rounded-full filter blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-500/20 rounded-full filter blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700/80 mb-8 backdrop-blur-sm shadow-inner">
+                <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-xs font-semibold tracking-wide text-slate-300">#1 House Selling & Buying Platform 2026</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight sm:leading-tight">
+                Sell Your House Fast. <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent">Get Maximum Market Value.</span>
+            </h1>
+
+            <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                Whether you want an instant cash valuation, top-tier agent listing, or zero hassle closing — we help homeowners get maximum value in under 14 days.
+            </p>
+
+            <!-- Trust Stats -->
+            <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto pt-8 border-t border-slate-800">
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white">$2.8B+</div>
+                    <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Total Homes Sold</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400">12 Days</div>
+                    <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Avg. Days on Market</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white">99.2%</div>
+                    <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Asking Price Achieved</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-amber-400">4.95 ★</div>
+                    <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Seller Rating</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Featured Listings Section -->
+    <section id="featured-listings" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <h2 class="text-xs font-bold text-brand-600 uppercase tracking-widest">Active Marketplace</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Explore Available Properties</p>
+                    <p class="text-slate-600 mt-2">Explore active seller listings available across prime locations.</p>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-bold text-slate-500 uppercase">Sort by:</span>
+                    <select id="filter-sort" onchange="renderProperties()" class="bg-slate-100 font-semibold text-xs text-slate-700 py-2.5 px-3 rounded-xl border-none outline-none focus:ring-2 focus:ring-brand-500">
+                        <option value="featured">Featured First</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="newest">Newest Listed</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Property Cards Grid -->
+            <div id="property-grid" class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamically populated via JavaScript -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="no-results" class="hidden text-center py-16 bg-slate-50 rounded-3xl border border-dashed border-slate-300 mt-8">
+                <i class="fa-solid fa-house-circle-xmark text-5xl text-slate-300 mb-3"></i>
+                <h3 class="text-lg font-bold text-slate-700">No matching properties found</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Property Detail Modal -->
+    <div id="detail-modal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col relative animate-in fade-in zoom-in duration-200">
+            
+            <!-- Modal Header -->
+            <div class="p-4 sm:p-6 bg-slate-900 text-white flex justify-between items-center shrink-0">
+                <div>
+                    <span id="modal-status-badge" class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">For Sale</span>
+                    <h3 id="modal-title" class="text-xl sm:text-2xl font-bold mt-1">Modern Modern Luxury Villa</h3>
+                    <p id="modal-address" class="text-xs text-slate-400">1248 Oakridge Estates Dr, Austin, TX</p>
+                </div>
+                <button onclick="closeDetailModal()" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content Body -->
+            <div class="p-6 overflow-y-auto space-y-6">
+                <!-- Gallery Image Showcase -->
+                <div class="relative h-64 sm:h-96 rounded-2xl overflow-hidden group">
+                    <img id="modal-img" src="" alt="Property detail" class="w-full h-full object-cover">
+                    <div id="modal-price" class="absolute bottom-4 left-4 bg-slate-900/90 text-white font-extrabold text-2xl px-4 py-2 rounded-xl backdrop-blur-md">
+                        $1,250,000
+                    </div>
+                </div>
+
+                <!-- Quick Specs Bar -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-center">
+                    <div>
+                        <span class="block text-xs font-bold text-slate-400 uppercase">Bedrooms</span>
+                        <span id="modal-beds" class="text-lg font-extrabold text-slate-800">4 Beds</span>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-bold text-slate-400 uppercase">Bathrooms</span>
+                        <span id="modal-baths" class="text-lg font-extrabold text-slate-800">3.5 Baths</span>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-bold text-slate-400 uppercase">Square Feet</span>
+                        <span id="modal-sqft" class="text-lg font-extrabold text-slate-800">3,200 sqft</span>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-bold text-slate-400 uppercase">Property Type</span>
+                        <span id="modal-type" class="text-lg font-extrabold text-brand-600">Luxury Villa</span>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div>
+                    <h4 class="text-base font-bold text-slate-900 mb-2">About This Property</h4>
+                    <p id="modal-desc" class="text-sm text-slate-600 leading-relaxed">
+                        Exquisite architectural masterpiece offering seamless indoor-outdoor living, high-end chef kitchen, custom marble finishes, and panoramic hillside views.
+                    </p>
+                </div>
+
+                <!-- Features Tags -->
+                <div>
+                    <h4 class="text-base font-bold text-slate-900 mb-2">Key Highlights</h4>
+                    <div id="modal-features" class="flex flex-wrap gap-2">
+                        <!-- Populated JS -->
+                    </div>
+                </div>
+
+                <!-- Schedule Viewing Form -->
+                <div class="bg-brand-50 p-6 rounded-2xl border border-brand-100">
+                    <h4 class="text-base font-bold text-brand-900 mb-1">Schedule a Private Showing</h4>
+                    <p class="text-xs text-brand-700 mb-4">Select a date and time to tour this property with an advisor.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <input type="date" id="tour-date" class="bg-white border border-brand-200 rounded-xl py-2 px-3 text-xs font-semibold">
+                        <select id="tour-time" class="bg-white border border-brand-200 rounded-xl py-2 px-3 text-xs font-semibold">
+                            <option>10:00 AM</option>
+                            <option>02:00 PM</option>
+                            <option>05:30 PM</option>
+                        </select>
+                        <button onclick="bookTour()" class="bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 px-4 rounded-xl text-xs transition-all shadow-md">
+                            Confirm Viewing
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- List Your Property Modal -->
+    <div id="listing-modal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden my-8 p-6 sm:p-8 relative animate-in fade-in zoom-in duration-200">
+            
+            <button onclick="closeListingModal()" class="absolute top-6 right-6 p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">Homeowner Portal</span>
+                <h3 class="text-2xl font-extrabold text-slate-900">List Your House For Sale</h3>
+                <p class="text-xs text-slate-500 mt-1">Submit your property details to get listed or receive a guaranteed cash offer within 24 hours.</p>
+            </div>
+
+            <form id="sell-house-form" onsubmit="handleHouseSubmission(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Street Address</label>
+                    <input type="text" id="form-address" required placeholder="e.g., 742 Evergreen Terrace, Springfield" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm font-semibold outline-none focus:border-brand-500">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Target Asking Price ($)</label>
+                        <input type="number" id="form-price" required placeholder="650000" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm font-semibold outline-none focus:border-brand-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Property Category</label>
+                        <select id="form-type" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm font-semibold outline-none">
+                            <option value="Single Family">Single Family</option>
+                            <option value="Luxury Villa">Luxury Villa</option>
+                            <option value="Condo">Condo / Apartment</option>
+                            <option value="Townhouse">Townhouse</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Beds</label>
+                        <input type="number" id="form-beds" required value="3" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm font-semibold outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Baths</label>
+                        <input type="number" id="form-baths" required value="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm font-semibold outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Sq Ft</label>
+                        <input type="number" id="form-sqft" required value="2200" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm font-semibold outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Owner Contact Email / Phone</label>
+                    <input type="text" id="form-contact" required placeholder="john@example.com or (555) 019-2831" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm font-semibold outline-none focus:border-brand-500">
+                </div>
+
+                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg transition-all text-sm mt-4">
+                    Submit Property Listing
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Saved Favorites Drawer -->
+    <div id="fav-drawer" class="fixed inset-y-0 right-0 z-50 w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="p-5 bg-slate-900 text-white flex justify-between items-center">
+            <h3 class="font-extrabold text-lg flex items-center gap-2">
+                <i class="fa-solid fa-heart text-rose-500"></i> Saved Houses
+            </h3>
+            <button onclick="toggleFavoritesDrawer()" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+        <div id="fav-list-container" class="p-4 overflow-y-auto flex-1 space-y-4">
+            <!-- Populated via JS -->
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 text-white font-semibold text-sm px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-slate-800 transition-all">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toast-msg">Action performed successfully!</span>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center text-white font-bold">
+                        <i class="fa-solid fa-house-chimney-window"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white">AuraHome</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Connecting homeowners with top buyers, guaranteed cash offers, and full-service real estate advisors across North America.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#featured-listings" class="hover:text-white transition-colors">Browse Active Listings</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Popular Locations</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-white transition-colors">Austin, TX Real Estate</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Miami, FL Real Estate</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Beverly Hills, CA Properties</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Seattle, WA Homes</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-900 text-xs text-center text-slate-500">
+            © 2026 AuraHome Realty Network Inc. All Rights Reserved. Equal Housing Opportunity.
+        </div>
+    </footer>
+
+    <script>
+        // Sample Property Database
+        const initialProperties = [
+            {
+                id: 1,
+                title: "Modern Architectural Hillside Villa",
+                address: "1248 Oakridge Estates Dr, Austin, TX",
+                price: 1250000,
+                type: "Luxury Villa",
+                beds: 4,
+                baths: 3.5,
+                sqft: 3450,
+                status: "For Sale",
+                img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&auto=format&fit=crop&q=80",
+                features: ["Swimming Pool", "Solar Panels", "Chef's Kitchen", "Panoramic Views", "3-Car Garage"],
+                desc: "An extraordinary modern sanctuary boasting floor-to-ceiling glass walls, custom walnut cabinetry, and a resort-style infinity pool overlooking Austin's rolling hills."
+            },
+            {
+                id: 2,
+                title: "Sunlit Coastal Modern Residence",
+                address: "482 Ocean Drive, Miami, FL",
+                price: 1890000,
+                type: "Luxury Villa",
+                beds: 5,
+                baths: 4.5,
+                sqft: 4200,
+                status: "Open House",
+                img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&auto=format&fit=crop&q=80",
+                features: ["Waterfront Access", "Private Dock", "Smart Home Tech", "Outdoor Kitchen"],
+                desc: "Premier coastal living featuring direct boat slip access, state-of-the-art security, and dual owner suites with spa-inspired bathrooms."
+            },
+            {
+                id: 3,
+                title: "Contemporary Suburban Family Home",
+                address: "891 Maplewood Ave, Seattle, WA",
+                price: 780000,
+                type: "Single Family",
+                beds: 3,
+                baths: 2.5,
+                sqft: 2400,
+                status: "Price Drop",
+                img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&auto=format&fit=crop&q=80",
+                features: ["Fenced Backyard", "EV Charging", "Hardwood Floors", "Quiet Cul-de-sac"],
+                desc: "Charming newly renovated family house situated in a top-rated school district with eco-friendly upgrades throughout."
+            },
+            {
+                id: 4,
+                title: "Penthouse Luxury Condominium",
+                address: "500 Grand Ave #24B, Los Angeles, CA",
+                price: 940000,
+                type: "Condo",
+                beds: 2,
+                baths: 2,
+                sqft: 1650,
+                status: "For Sale",
+                img: "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=800&auto=format&fit=crop&q=80",
+                features: ["Concierge 24/7", "Sky Deck", "Fitness Center", "City Skyline Views"],
+                desc: "High-floor urban sanctuary offering floor-to-ceiling city skyline panoramas, private elevator access, and luxury concierge services."
+            },
+            {
+                id: 5,
+                title: "Elegantly Restored Craftsman Townhouse",
+                address: "312 Heritage Lane, Denver, CO",
+                price: 620000,
+                type: "Townhouse",
+                beds: 3,
+                baths: 2,
+                sqft: 2100,
+                status: "For Sale",
+                img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&auto=format&fit=crop&q=80",
+                features: ["Brick Fireplace", "Private Rooftop Deck", "Custom Cabinets"],
+                desc: "Warmth meets high sophistication in this beautifully restored brownstone townhouse with modern gourmet upgrades."
+            },
+            {
+                id: 6,
+                title: "Secluded Pine Forest Retreat",
+                address: "704 Aspen Grove Way, Salt Lake City, UT",
+                price: 850000,
+                type: "Single Family",
+                beds: 4,
+                baths: 3,
+                sqft: 3100,
+                status: "Pending",
+                img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80",
+                features: ["Mountain Views", "Heated Driveway", "Sauna & Hot Tub"],
+                desc: "Surrounded by nature, this mountain estate provides tranquil living with easy highway access to top ski resorts."
+            }
+        ];
+
+        let properties = [...initialProperties];
+        let favoriteIds = [];
+
+        // Initialize App on DOM Load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProperties();
+        });
+
+        function renderProperties() {
+            const grid = document.getElementById('property-grid');
+            const noRes = document.getElementById('no-results');
+            const searchVal = document.getElementById('filter-search')?.value.toLowerCase() || '';
+            const typeVal = document.getElementById('filter-type')?.value || 'all';
+            const bedsVal = document.getElementById('filter-beds')?.value || 'all';
+            const maxPriceVal = document.getElementById('filter-max-price')?.value;
+            const maxPrice = maxPriceVal ? parseInt(maxPriceVal) : Infinity;
+            const sortBy = document.getElementById('filter-sort')?.value || 'featured';
+
+            let filtered = properties.filter(item => {
+                const matchesSearch = !searchVal || item.title.toLowerCase().includes(searchVal) || item.address.toLowerCase().includes(searchVal);
+                const matchesType = typeVal === 'all' || item.type === typeVal;
+                const matchesBeds = bedsVal === 'all' || item.beds >= parseInt(bedsVal);
+                const matchesPrice = item.price <= maxPrice;
+                return matchesSearch && matchesType && matchesBeds && matchesPrice;
+            });
+
+            // Sorting
+            if (sortBy === 'price-asc') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortBy === 'price-desc') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (sortBy === 'newest') {
+                filtered.sort((a, b) => b.id - a.id);
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                if (noRes) noRes.classList.remove('hidden');
+                return;
+            } else {
+                if (noRes) noRes.classList.add('hidden');
+            }
+
+            grid.innerHTML = filtered.map(item => {
+                const isFav = favoriteIds.includes(item.id);
+                return `
+                    <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 group flex flex-col">
+                        <div class="relative h-60 overflow-hidden">
+                            <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            
+                            <!-- Status Badge -->
+                            <span class="absolute top-4 left-4 bg-slate-900/80 text-white backdrop-blur-md text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                ${item.status}
+                            </span>
+
+                            <!-- Heart Favorite Button -->
+                            <button onclick="toggleFavorite(${item.id})" class="absolute top-4 right-4 w-9 h-9 rounded-full ${isFav ? 'bg-rose-500 text-white' : 'bg-white/80 text-slate-700 hover:bg-white'} backdrop-blur-md flex items-center justify-center transition-all shadow-md">
+                                <i class="fa-solid fa-heart text-sm"></i>
+                            </button>
+
+                            <div class="absolute bottom-4 left-4 bg-white/95 text-slate-900 font-extrabold text-xl px-3.5 py-1.5 rounded-xl shadow-lg backdrop-blur-sm">
+                                $${item.price.toLocaleString()}
+                            </div>
+                        </div>
+
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">${item.type}</span>
+                                <h3 class="text-lg font-bold text-slate-900 mt-1 line-clamp-1 group-hover:text-brand-600 transition-colors">${item.title}</h3>
+                                <p class="text-xs text-slate-500 mt-1 flex items-center gap-1">
+                                    <i class="fa-solid fa-location-dot text-slate-400"></i> ${item.address}
+                                </p>
+                            </div>
+
+                            <!-- Specs -->
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-600">
+                                <span><i class="fa-solid fa-bed text-brand-500 mr-1.5"></i>${item.beds} Beds</span>
+                                <span><i class="fa-solid fa-bath text-brand-500 mr-1.5"></i>${item.baths} Baths</span>
+                                <span><i class="fa-solid fa-ruler-combined text-brand-500 mr-1.5"></i>${item.sqft.toLocaleString()} sqft</span>
+                            </div>
+
+                            <button onclick="openDetailModal(${item.id})" class="mt-5 w-full bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-800 font-bold py-2.5 rounded-xl transition-all text-xs flex items-center justify-center gap-2">
+                                <span>View Details & Schedule</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function setCondition(cond) {
+            activeCondition = cond;
+            document.querySelectorAll('.val-cond-btn').forEach(btn => {
+                btn.className = 'val-cond-btn py-2 px-3 rounded-xl border border-slate-700 text-xs font-bold bg-slate-800 text-slate-300 hover:border-brand-500';
+            });
+            const activeBtn = document.getElementById(`cond-${cond}`);
+            if (activeBtn) {
+                activeBtn.className = 'val-cond-btn py-2 px-3 rounded-xl border border-brand-500 text-xs font-bold bg-brand-600 text-white';
+            }
+            calculateValuation();
+        }
+
+        function calculateValuation() {
+            const sqft = parseInt(document.getElementById('val-sqft').value);
+            const beds = parseInt(document.getElementById('val-beds').value);
+            const baths = parseInt(document.getElementById('val-baths').value);
+            const location = document.getElementById('val-location').value;
+
+            document.getElementById('val-sqft-val').innerText = `${sqft.toLocaleString()} sqft`;
+
+            let baseRate = 280; // per sqft
+            if (location === 'metro') baseRate = 380;
+            if (location === 'waterfront') baseRate = 520;
+
+            let conditionMultiplier = 1.0;
+            if (activeCondition === 'renovated') conditionMultiplier = 1.15;
+            if (activeCondition === 'luxury') conditionMultiplier = 1.35;
+
+            let estimatedVal = (sqft * baseRate * conditionMultiplier) + (beds * 12000) + (baths * 15000);
+            estimatedVal = Math.round(estimatedVal / 1000) * 1000;
+
+            const minRange = Math.round((estimatedVal * 0.95) / 1000) * 1000;
+            const maxRange = Math.round((estimatedVal * 1.05) / 1000) * 1000;
+
+            const comm = Math.round(estimatedVal * 0.025);
+            const closing = Math.round(estimatedVal * 0.01);
+            const net = estimatedVal - comm - closing;
+
+            document.getElementById('valuation-output').innerText = `$${estimatedVal.toLocaleString()}`;
+            document.getElementById('valuation-range').innerText = `Estimated Range: $${(minRange/1000).toFixed(0)}K - $${(maxRange/1000).toFixed(0)}K`;
+            document.getElementById('val-comm').innerText = `-$${comm.toLocaleString()}`;
+            document.getElementById('val-closing').innerText = `-$${closing.toLocaleString()}`;
+            document.getElementById('val-net').innerText = `$${net.toLocaleString()}`;
+        }
+
+        function calculateMortgage() {
+            const price = parseInt(document.getElementById('calc-price').value);
+            const downPercent = parseInt(document.getElementById('calc-down').value);
+            const rate = parseFloat(document.getElementById('calc-rate').value) / 100 / 12;
+            const termYears = parseInt(document.getElementById('calc-term').value);
+            const n = termYears * 12;
+
+            const downAmount = (price * downPercent) / 100;
+            const loanAmount = price - downAmount;
+
+            document.getElementById('calc-price-lbl').innerText = `$${price.toLocaleString()}`;
+            document.getElementById('calc-down-lbl').innerText = `${downPercent}% ($${downAmount.toLocaleString()})`;
+
+            let monthlyPI = 0;
+            if (rate > 0) {
+                monthlyPI = loanAmount * (rate * Math.pow(1 + rate, n)) / (Math.pow(1 + rate, n) - 1);
+            } else {
+                monthlyPI = loanAmount / n;
+            }
+
+            const monthlyTax = (price * 0.01) / 12;
+            const monthlyIns = (price * 0.0022) / 12;
+            const totalPayment = monthlyPI + monthlyTax + monthlyIns;
+
+            document.getElementById('calc-total-payment').innerText = `$${Math.round(totalPayment).toLocaleString()} / mo`;
+            document.getElementById('calc-pi').innerText = `$${Math.round(monthlyPI).toLocaleString()}`;
+            document.getElementById('calc-tax').innerText = `$${Math.round(monthlyTax).toLocaleString()}`;
+            document.getElementById('calc-ins').innerText = `$${Math.round(monthlyIns).toLocaleString()}`;
+        }
+
+        function updatePriceFilterLabel() {
+            const val = parseInt(document.getElementById('filter-max-price').value);
+            document.getElementById('price-limit-val').innerText = val >= 3000000 ? '$3.0M+' : `$${(val/1000000).toFixed(1)}M`;
+        }
+
+        function resetFilters() {
+            document.getElementById('filter-search').value = '';
+            document.getElementById('filter-type').value = 'all';
+            document.getElementById('filter-beds').value = 'all';
+            document.getElementById('filter-max-price').value = '3000000';
+            document.getElementById('filter-sort').value = 'featured';
+            updatePriceFilterLabel();
+            renderProperties();
+        }
+
+        function toggleFavorite(id) {
+            if (favoriteIds.includes(id)) {
+                favoriteIds = favoriteIds.filter(fId => fId !== id);
+                triggerToast("Property removed from saved homes.");
+            } else {
+                favoriteIds.push(id);
+                triggerToast("Property added to saved favorites!");
+            }
+            document.getElementById('fav-count-badge').innerText = favoriteIds.length;
+            renderProperties();
+            renderFavoritesDrawer();
+        }
+
+        function renderFavoritesDrawer() {
+            const container = document.getElementById('fav-list-container');
+            if (favoriteIds.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-slate-400 text-xs">
+                        <i class="fa-regular fa-heart text-3xl mb-2"></i>
+                        <p>No saved homes yet.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const savedProps = properties.filter(p => favoriteIds.includes(p.id));
+            container.innerHTML = savedProps.map(item => `
+                <div class="flex gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-200">
+                    <img src="${item.img}" class="w-16 h-16 rounded-xl object-cover">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-bold text-slate-800 text-xs truncate">${item.title}</h4>
+                        <span class="text-brand-600 font-extrabold text-xs">$${item.price.toLocaleString()}</span>
+                        <div class="flex gap-2 mt-2">
+                            <button onclick="openDetailModal(${item.id}); toggleFavoritesDrawer()" class="text-[10px] font-bold text-white bg-slate-900 px-2.5 py-1 rounded-lg">View</button>
+                            <button onclick="toggleFavorite(${item.id})" class="text-[10px] font-bold text-rose-600 bg-rose-50 px-2.5 py-1 rounded-lg">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleFavoritesDrawer() {
+            const drawer = document.getElementById('fav-drawer');
+            drawer.classList.toggle('translate-x-full');
+            renderFavoritesDrawer();
+        }
+
+        function openDetailModal(id) {
+            const item = properties.find(p => p.id === id);
+            if (!item) return;
+
+            document.getElementById('modal-title').innerText = item.title;
+            document.getElementById('modal-address').innerText = item.address;
+            document.getElementById('modal-img').src = item.img;
+            document.getElementById('modal-price').innerText = `$${item.price.toLocaleString()}`;
+            document.getElementById('modal-beds').innerText = `${item.beds} Beds`;
+            document.getElementById('modal-baths').innerText = `${item.baths} Baths`;
+            document.getElementById('modal-sqft').innerText = `${item.sqft.toLocaleString()} sqft`;
+            document.getElementById('modal-type').innerText = item.type;
+            document.getElementById('modal-desc').innerText = item.desc;
+            document.getElementById('modal-status-badge').innerText = item.status;
+
+            const featuresContainer = document.getElementById('modal-features');
+            featuresContainer.innerHTML = item.features.map(f => `
+                <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1 rounded-xl border border-slate-200 flex items-center gap-1.5">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-[10px]"></i> ${f}
+                </span>
+            `).join('');
+
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+        }
+
+        function openListingModal() {
+            document.getElementById('listing-modal').classList.remove('hidden');
+        }
+
+        function closeListingModal() {
+            document.getElementById('listing-modal').classList.add('hidden');
+        }
+
+        function handleHouseSubmission(e) {
+            e.preventDefault();
+            const address = document.getElementById('form-address').value;
+            const price = parseInt(document.getElementById('form-price').value);
+            const type = document.getElementById('form-type').value;
+            const beds = parseInt(document.getElementById('form-beds').value);
+            const baths = parseFloat(document.getElementById('form-baths').value);
+            const sqft = parseInt(document.getElementById('form-sqft').value);
+
+            const newHouse = {
+                id: Date.now(),
+                title: `${type} on ${address.split(',')[0]}`,
+                address: address,
+                price: price,
+                type: type,
+                beds: beds,
+                baths: baths,
+                sqft: sqft,
+                status: "Just Listed",
+                img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80",
+                features: ["Newly Listed", "Owner Verified", "Fast Closing Ready"],
+                desc: "Newly listed home direct from seller. High potential property in prime neighborhood location."
+            };
+
+            properties.unshift(newHouse);
+            renderProperties();
+            closeListingModal();
+            triggerToast("House listed successfully! Your property is now active.");
+            document.getElementById('sell-house-form').reset();
+        }
+
+        function bookTour() {
+            const date = document.getElementById('tour-date').value;
+            if (!date) {
+                triggerToast("Please pick a viewing date!");
+                return;
+            }
+            closeDetailModal();
+            triggerToast("Viewing request confirmed! An agent will contact you shortly.");
+        }
+
+        function switchHeroTab(tab) {
+            const buyBtn = document.getElementById('tab-buy-btn');
+            const sellBtn = document.getElementById('tab-sell-btn');
+            const buyForm = document.getElementById('hero-buy-form');
+            const sellForm = document.getElementById('hero-sell-form');
+
+            if (tab === 'buy') {
+                buyBtn.className = 'flex-1 py-2.5 rounded-xl font-bold text-sm transition-all bg-white text-brand-600 shadow-sm';
+                sellBtn.className = 'flex-1 py-2.5 rounded-xl font-bold text-sm transition-all text-slate-500 hover:text-slate-800';
+                buyForm.classList.remove('hidden');
+                sellForm.classList.add('hidden');
+            } else {
+                sellBtn.className = 'flex-1 py-2.5 rounded-xl font-bold text-sm transition-all bg-white text-emerald-600 shadow-sm';
+                buyBtn.className = 'flex-1 py-2.5 rounded-xl font-bold text-sm transition-all text-slate-500 hover:text-slate-800';
+                sellForm.classList.remove('hidden');
+                buyForm.classList.add('hidden');
+            }
+        }
+
+        function executeHeroSearch() {
+            const location = document.getElementById('hero-search-input').value;
+            const type = document.getElementById('hero-type-input').value;
+
+            document.getElementById('filter-search').value = location;
+            document.getElementById('filter-type').value = type;
+            renderProperties();
+
+            document.getElementById('featured-listings').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function triggerToast(message) {
+            const container = document.getElementById('toast-container');
+            const msgSpan = document.getElementById('toast-msg');
+            msgSpan.innerText = message;
+            container.classList.remove('hidden');
+
+            setTimeout(() => {
+                container.classList.add('hidden');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
